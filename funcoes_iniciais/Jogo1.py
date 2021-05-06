@@ -15,20 +15,26 @@ while not valido:
         Valido = True
     else:
         print("Resposta inválida, responda com sim ou nao")
-# if jogar:
-# a = cb.cria_baralho()
-# i = 0
-# novo_baralho = [] 
-# cartas = []
-# #embaralhamento das cartas:
-# while i < 52:
-#     carta = random.choice(a)
-#     novo_baralho.append(carta)
-#     a.remove(carta)
-#     i+=1
-# c =len(novo_baralho)
-# print(novo_baralho)
-# print(c)
-# while jogar:
-
+if jogar:
+    #criação do baralho
+    a = cb.cria_baralho()
+    i = 0
+    novo_baralho = [] 
+    cartas = []
+    #embaralhamento das cartas:
+    while i < 52:
+        carta = random.choice(a)
+        novo_baralho.append(carta)
+        a.remove(carta)
+        i+=1
+    c =len(novo_baralho)
+    i = 0
+    while jogar:
+        #Mostrar as cartas na tela
+        while i < c:
+            a = i+1
+            print("{0}. {1}".format(a,novo_baralho[i]))
+            i+=1
+        jogar = False
+        
 
