@@ -28,13 +28,26 @@ if jogar:
         a.remove(carta)
         i+=1
     c =len(novo_baralho)
-    i = 0
     while jogar:
+        i = 0
         #Mostrar as cartas na tela
         while i < c:
             a = i+1
             print("{0}. {1}".format(a,novo_baralho[i]))
             i+=1
-        jogar = False
+        condicao = True
+        while condicao:
+            errado = False
+            indice = int(input("Escolha qual carta quer mover: "))
+            if indice > c or indice < 1:
+                errado = True
+            while errado:
+                print("Número inválido, digite outro")
+                indice = int(input("Escolha qual carta quer mover: "))
+                if indice > c or indice <1:
+                    errado = True
+                else: 
+                    errado = False
+
         
 
