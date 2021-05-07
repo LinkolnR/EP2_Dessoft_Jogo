@@ -3,6 +3,7 @@ import random
 import existe_possivel as exp
 import movimentos_possiveis as mp
 import empilhar as emp
+import valida_movimento as vm
 #Pergunta se a pessoa quer jogar
 valido = False
 while not valido:
@@ -48,6 +49,19 @@ if jogar:
                     errado = True
                 else: 
                     errado = False
+            if exp.possui_movimentos_possiveis(novo_baralho):
+                valida = vm.valida_movimento(novo_baralho, indice-1)
+                if valida:
+                    condicao = False
+                else:
+                    condicao = True
+                    print("Não há movimento para essa carta, escolha outra")
+            else:
+                print("Você perdeu :(")
+                jogar = False
+                condicao = False
+
+
 
         
 
