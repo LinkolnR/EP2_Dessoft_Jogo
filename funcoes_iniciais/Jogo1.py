@@ -60,6 +60,25 @@ if jogar:
                 print("Você perdeu :(")
                 jogar = False
                 condicao = False
+        if jogar:
+            movs = mp.lista_movimentos_possiveis(novo_baralho, indice-1)
+            if movs == [1]:
+                emp.empilha(novo_baralho, indice-1, indice-2)
+                c-=1
+            elif movs == [3]:
+                emp.empilha(novo_baralho, indice-1, indice-4)
+                c-=1   
+            elif movs == [1,3]:
+                print("1.{0}".format(novo_baralho[indice-2]))
+                print("2.{0}".format(novo_baralho[indice-4]))
+                escolha = input("você quer empilhar em qual?  ")
+                if escolha == "1":
+                    emp.empilha(novo_baralho, indice-1, indice-2)
+                    c-=1      
+                elif escolha == "2":
+                    emp.empilha(novo_baralho, indice-1, indice-4)
+                    c-=1
+
 
 
 
