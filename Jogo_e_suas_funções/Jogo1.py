@@ -14,11 +14,11 @@ print("2. Empilhar uma carta sobre a terceira carta anterior.\n")
 print("Para que um movimento possa ser realizado basta que uma das duas condições abaixo seja atendida:\n")
 
 print("1. As duas cartas possuem o mesmo valor ou\n")
-print("2. As duas cartas possuem o mesmo naipe.")
+print("2. As duas cartas possuem o mesmo naipe.\n")
 
 valido = False
 while not valido:
-    inicio = input("quer jogar o jogo?  (sim/nao)")
+    inicio = input("quer jogar o jogo?  (sim/nao)  ")
     if inicio == "sim":
         valido = True
         jogar = True
@@ -45,10 +45,24 @@ if jogar:
             print("VOCÊ VENCEU >-< ^_^ :)!")
         else:
             i = 0
+            #Definindo as cores das cartas
+            VERMELHO = "\033[0;31m"
+            AZUL = "\033[0;34m"
+            PRETO = "\033[0;30m"
+            VERDE = "\033[0;32m"
+            RESET = "\033[0;0m"
             #Mostrar as cartas na tela
             while i < c:
                 a = i+1
-                print("{0}. {1}".format(a,novo_baralho[i]))
+                ind = len(novo_baralho[i])
+                if novo_baralho[i][ind-1] == "♠":
+                    print(VERDE + "{0}. ".format(a) + "{0}".format(novo_baralho[i]) +RESET)
+                elif novo_baralho[i][ind-1] == "♥":
+                    print(VERMELHO + "{0}. ".format(a) + "{0}".format(novo_baralho[i])+ RESET)
+                elif novo_baralho[i][ind-1] == "♦":
+                    print(AZUL + "{0}. ".format(a) + "{0}".format(novo_baralho[i])+ RESET)
+                elif novo_baralho[i][ind-1] == "♣":
+                    print("{0}. ".format(a) + "{0}".format(novo_baralho[i]))
                 i+=1
             condicao = True
             while condicao:
