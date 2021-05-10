@@ -19,12 +19,12 @@ valido = False
 quer_jogar = True
 while quer_jogar:
     while not valido:
-        inicio = input("quer jogar o jogo?  (sim/nao)  \n")
-        if inicio == "sim":
+        inicio1 = input("quer jogar o jogo?  (sim/nao)  \n")
+        if inicio1 == "sim":
             valido = True
             jogar = True
             quer_jogar = False
-        elif inicio == "nao":
+        elif inicio1 == "nao":
             print("Obrigado por visitar o jogo <3")
             quer_jogar = False
             jogar = False
@@ -39,7 +39,7 @@ while quer_jogar:
         novo_baralho = [] 
         cartas = []
         #embaralhamento das cartas:
-        while i < 52:
+        while i < 3:
             carta = random.choice(a)
             novo_baralho.append(carta)
             a.remove(carta)
@@ -152,4 +152,5 @@ while quer_jogar:
                     elif escolha == "2":
                         emp.empilha(novo_baralho, indice-1, indice-4)
                         c-=1
-print("obrigado por jogar o jogo <3 ")
+if not inicio1 == "nao":
+    print("obrigado por jogar o jogo <3 ")
