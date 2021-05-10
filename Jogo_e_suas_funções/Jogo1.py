@@ -39,7 +39,7 @@ while quer_jogar:
         novo_baralho = [] 
         cartas = []
         #embaralhamento das cartas:
-        while i < 3:
+        while i < 52:
             carta = random.choice(a)
             novo_baralho.append(carta)
             a.remove(carta)
