@@ -39,7 +39,7 @@ while quer_jogar:
         novo_baralho = [] 
         cartas = []
         #embaralhamento das cartas:
-        while i < 3:
+        while i < 52:
             carta = random.choice(a)
             novo_baralho.append(carta)
             a.remove(carta)
@@ -48,21 +48,26 @@ while quer_jogar:
         while jogar2:
             if c == 1:
                 print("VOCÊ VENCEU >-< ^_^ :)!")
-                inicio = input("quer jogar o jogo denovo?  (sim/nao)  \n")
-                if inicio == "sim":
-                    valido = True
-                    jogar = True
-                    jogar2 = False
-                    quer_jogar = True
-                elif inicio == "nao":
-                    quer_jogar = False
-                    jogar = False
-                    jogar2 = False
-                    valido = True
-                else:
-                    print("Resposta inválida, responda com sim ou nao\n")
-                    jogar2 = False
-                    valido = False                
+                validar2 = True
+                while validar2:
+                    inicio = input("quer jogar o jogo denovo?  (sim/nao)  \n")
+                    if inicio == "sim":
+                        validar2 = False
+                        valido = True
+                        jogar = True
+                        jogar2 = False
+                        quer_jogar = True
+                    elif inicio == "nao":
+                        validar2 = False
+                        quer_jogar = False
+                        jogar = False
+                        jogar2 = False
+                        valido = True
+                    else:
+                        print("Resposta inválida, responda com sim ou nao\n")
+                        jogar2 = False
+                        valido = False
+                        validar2 = True               
             else:
                 i = 0
                 #Definindo as cores das cartas
@@ -86,14 +91,14 @@ while quer_jogar:
                     i+=1
                 condicao = True
                 while condicao:
-                    indice = int(input("Escolha qual carta quer mover: "))
+                    indice = int(input("Escolha qual carta quer mover: \n"))
                     if indice > c or indice < 1:
                         errado = True
                     else:
                         errado = False
                     while errado:
                         print("Número inválido, digite outro")
-                        indice = int(input("Escolha qual carta quer mover: "))
+                        indice = int(input("Escolha qual carta quer mover: \n"))
                         if indice > c or indice <1:
                             errado = True
                         else: 
@@ -110,21 +115,26 @@ while quer_jogar:
                         # jogar = False
                         # quer_jogar = True
                         condicao = False
-                        inicio = input("quer jogar o jogo denovo?  (sim/nao)  \n")
-                        if inicio == "sim":
-                            valido = True
-                            jogar = True
-                            jogar2 = False
-                            quer_jogar = True
-                        elif inicio == "nao":
-                            quer_jogar = False
-                            jogar = False
-                            jogar2 = False
-                            valido = True
-                        else:
-                            print("Resposta inválida, responda com sim ou nao\n")
-                            jogar2 = False
-                            valido = False
+                        validar = True
+                        while validar:
+                            inicio = input("quer jogar o jogo denovo?  (sim/nao)  \n")
+                            if inicio == "sim":
+                                validar = False
+                                valido = True
+                                jogar = True
+                                jogar2 = False
+                                quer_jogar = True
+                            elif inicio == "nao":
+                                validar = False
+                                quer_jogar = False
+                                jogar = False
+                                jogar2 = False
+                                valido = True
+                            else:
+                                print("Resposta inválida, responda com sim ou nao\n")
+                                jogar2 = False
+                                valido = False
+                                validar = True
                 movs = mp.lista_movimentos_possiveis(novo_baralho, indice-1)
                 if movs == [1]:
                     emp.empilha(novo_baralho, indice-1, indice-2)
