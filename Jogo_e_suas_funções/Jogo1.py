@@ -1,9 +1,9 @@
-import cria_baralho as cb
+import cria_baralho as cb #função criada para criar o baralho de 52 cartas
 import random
-import existe_possivel as exp
-import movimentos_possiveis as mp
-import empilhar as emp
-import valida_movimento as vm
+import existe_possivel as exp # função criada para verificar se existe movimento possiveis com o baralho no estado atual
+import movimentos_possiveis as mp # Devolve os possíveis movimentos, 1 ou 3 ou ambos
+import empilhar as emp #É o comando que faz o jogo acontecer, "empilha" uma carta em cima da outra
+import valida_movimento as vm #Função que verifica se a carta escolhida tem movimento no baralho atual.
 #Pergunta se a pessoa quer jogar
 print("Seja bem vindo ao Jogo, vamos as regras:")
 print("Existem apenas dois movimentos possíveis:\n ")
@@ -17,13 +17,12 @@ print("1. As duas cartas possuem o mesmo valor ou\n")
 print("2. As duas cartas possuem o mesmo naipe.\n")
 valido = False
 quer_jogar = True
-while quer_jogar:
+while quer_jogar: #faz com que o jogo rode o jogo até que o jogadore responda não 
     while not valido:
         inicio1 = input("quer jogar o jogo?  (sim/nao)  \n")
         if inicio1 == "sim":
-            valido = True
-            jogar = True
-            quer_jogar = False
+            valido = True # variavel para validar se a resposta do jogador é valida (sim ou nao)
+            jogar = True # faz com que o jogo rode 
         elif inicio1 == "nao":
             print("Obrigado por visitar o jogo <3")
             quer_jogar = False
@@ -32,7 +31,7 @@ while quer_jogar:
         else:
             print("Resposta inválida, responda com sim ou nao\n")
     if jogar:
-        jogar2 = jogar
+        jogar2 = jogar #criada para ditar quando o jogador quer reiniciar o jogo
         #criação do baralho
         a = cb.cria_baralho()
         i = 0
@@ -52,7 +51,7 @@ while quer_jogar:
                 while validar2:
                     inicio = input("quer jogar o jogo denovo?  (sim/nao)  \n")
                     if inicio == "sim":
-                        validar2 = False
+                        validar2 = False# Usado para validar a resposta caso o jogador queira jogar denovo ou não
                         valido = True
                         jogar = True
                         jogar2 = False
@@ -75,7 +74,7 @@ while quer_jogar:
                 AZUL = "\033[0;34m"
                 PRETO = "\033[0;30m"
                 VERDE = "\033[0;32m"
-                RESET = "\033[0;0m"
+                RESET = "\033[0;0m" #para que o terminal volte para a cor orginial 
                 #Mostrar as cartas na tela
                 while i < c:
                     a = i+1
@@ -112,8 +111,6 @@ while quer_jogar:
                             print("Não há movimento para essa carta, escolha outra")
                     else:
                         print("Você perdeu :(")
-                        # jogar = False
-                        # quer_jogar = True
                         condicao = False
                         validar = True
                         while validar:
